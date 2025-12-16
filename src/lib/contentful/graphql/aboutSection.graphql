@@ -1,0 +1,16 @@
+fragment AboutSectionFields on AboutSection {
+  sys {
+    id
+  }
+  title
+  summary
+}
+
+query aboutSection($locale: String, $preview: Boolean) {
+  aboutSectionCollection(limit: 1, locale: $locale, preview: $preview) {
+    items {
+      ...AboutSectionFields
+    }
+  }
+}
+

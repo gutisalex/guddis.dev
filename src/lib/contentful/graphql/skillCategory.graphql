@@ -1,0 +1,17 @@
+fragment SkillCategoryFields on SkillCategory {
+  sys {
+    id
+  }
+  categoryName
+  skills
+  order
+}
+
+query skillCategoryCollection($locale: String, $preview: Boolean, $order: [SkillCategoryOrder]) {
+  skillCategoryCollection(limit: 100, locale: $locale, preview: $preview, order: $order) {
+    items {
+      ...SkillCategoryFields
+    }
+  }
+}
+
