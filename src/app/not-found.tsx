@@ -26,12 +26,15 @@ export default function NotFound() {
           </p>
         </CardContent>
         <CardFooter>
-          <Button asChild variant="default" className="flex-1">
-            <Link href="/">Go home</Link>
+          <Button
+            render={<Link href="/" />}
+            variant="default"
+            className="flex-1"
+          >
+            Go home
           </Button>
         </CardFooter>
       </Card>
     </div>
   );
 }
-

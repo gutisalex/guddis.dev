@@ -12,6 +12,8 @@ import { Skills } from "@/components/sections/Skills";
 import { Projects } from "@/components/sections/Projects";
 import { Contact } from "@/components/sections/Contact";
 import { StructuredData } from "@/components/StructuredData";
+import { Navigation } from "@/components/Navigation";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 export const revalidate = 3600; // Revalidate every hour
 
@@ -39,6 +41,7 @@ export default async function Home() {
   return (
     <>
       <StructuredData hero={hero} />
+      <Navigation />
       <main className="min-h-screen">
         <Hero hero={hero} />
         <About about={about} />
@@ -47,6 +50,7 @@ export default async function Home() {
         <Projects projects={projects} />
         <Contact hero={hero} />
       </main>
+      <ScrollToTop />
     </>
   );
 }
