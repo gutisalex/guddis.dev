@@ -57,6 +57,7 @@ export function Hero({ hero }: HeroProps) {
               src={profileImage.url}
               alt={profileImage.title || name}
               fill
+              sizes="(max-width: 640px) 192px, 224px"
               className="object-cover"
               priority
             />
