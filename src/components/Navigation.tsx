@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -28,26 +29,6 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    setIsMobileMenuOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      // Get the actual header height dynamically (header is h-16 = 64px)
-      const header = document.querySelector("header");
-      const headerHeight = header ? header.getBoundingClientRect().height : 64;
-      
-      // Calculate the target scroll position - use exact header height
-      const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
-      const targetPosition = elementTop - headerHeight;
-
-      window.scrollTo({
-        top: Math.max(0, targetPosition), // Ensure we don't scroll to negative position
-        behavior: "smooth",
-      });
-    }
-  };
-
   return (
     <header
       className={cn(
@@ -60,25 +41,24 @@ export function Navigation() {
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo/Brand */}
-          <a
+          <Link
             href="#home"
-            onClick={(e) => handleNavClick(e, "#home")}
             className="text-lg font-semibold hover:text-primary transition-colors"
+            onClick={() => setIsMobileMenuOpen(false)}
           >
             AG
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:gap-1">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
                 className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <div className="ml-2">
               <ThemeToggle />
@@ -109,14 +89,14 @@ export function Navigation() {
           <div className="border-t border-border md:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.href}
                   href={item.href}
-                  onClick={(e) => handleNavClick(e, item.href)}
+                  onClick={() => setIsMobileMenuOpen(false)}
                   className="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors"
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -125,4 +105,3 @@ export function Navigation() {
     </header>
   );
 }
-

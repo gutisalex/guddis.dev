@@ -1,6 +1,10 @@
-import { Linkedin, Download } from "lucide-react";
+"use client";
+
+import { useState, useEffect } from "react";
+import { Linkedin, Download, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import type { HeroSection } from "@/lib/content";
 
 type HeroProps = {
@@ -8,12 +12,22 @@ type HeroProps = {
 };
 
 export function Hero({ hero }: HeroProps) {
+  const [isScrolled, setIsScrolled] = useState(false);
   const name = hero.name ?? "";
   const title = hero.title ?? "";
   const location = hero.location ?? "";
   const email = hero.email ?? "";
   const linkedInUrl = hero.linkedInUrl ?? "";
   const profileImage = hero.profileImage;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <section
@@ -75,6 +89,18 @@ export function Hero({ hero }: HeroProps) {
           </a>
         </div>
       </div>
+
+      {/* Scroll indicator */}
+      <a
+        href="#about"
+        className={cn(
+          "absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center justify-center text-muted-foreground hover:text-foreground transition-all duration-300",
+          isScrolled ? "opacity-0 pointer-events-none" : "opacity-100"
+        )}
+        aria-label="Scroll to next section"
+      >
+        <ChevronDown className="h-10 w-10 animate-pulse-slow" />
+      </a>
     </section>
   );
 }
