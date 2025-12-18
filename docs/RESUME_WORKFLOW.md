@@ -11,7 +11,7 @@ This project uses [RenderCV](https://github.com/rendercv/rendercv) to generate a
 
 ### 1. Edit Your Resume
 
-Edit the YAML file: `data/CV_Alexander_Gutheil.yaml`
+Edit the YAML file: `data/resume.yaml`
 
 RenderCV uses a structured YAML format. See [RenderCV documentation](https://docs.rendercv.com) for details.
 
@@ -58,4 +58,4 @@ pip3 install "rendercv[full]"
 
 - Ensure the PDF exists in the `public` directory
 - Run `bun run resume:generate` to generate the PDF
-- Check that `public/Alexander_Gutheil_Resume.pdf` exists
+- Check that `public/resume.pdf` exists

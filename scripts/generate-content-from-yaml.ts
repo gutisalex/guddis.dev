@@ -2,7 +2,7 @@ import { readFile, writeFile, mkdir } from "fs/promises";
 import { join } from "path";
 import yaml from "js-yaml";
 
-const cvYamlPath = join(process.cwd(), "data", "CV_Alexander_Gutheil.yaml");
+const cvYamlPath = join(process.cwd(), "data", "resume.yaml");
 const contentDir = join(process.cwd(), "content");
 
 interface CVData {
@@ -45,7 +45,9 @@ function isCurrentDate(endDate?: string | "present"): boolean {
 }
 
 // Get LinkedIn URL from social networks
-function getLinkedInUrl(socialNetworks?: Array<{ network: string; username: string }>): string {
+function getLinkedInUrl(
+  socialNetworks?: Array<{ network: string; username: string }>
+): string {
   const linkedIn = socialNetworks?.find((s) => s.network === "LinkedIn");
   if (linkedIn) {
     return `https://www.linkedin.com/in/${linkedIn.username}`;
@@ -100,7 +102,9 @@ ${professionalSummary}
 
     // Generate experiences.md
     if (cv.sections.experience && cv.sections.experience.length > 0) {
-      console.log(`   ✓ Generating experiences.md (${cv.sections.experience.length} entries)...`);
+      console.log(
+        `   ✓ Generating experiences.md (${cv.sections.experience.length} entries)...`
+      );
       const experiencesContent = cv.sections.experience
         .map((exp, index) => {
           const startDate = normalizeDate(exp.start_date);
@@ -113,7 +117,10 @@ ${professionalSummary}
           const description = highlights.length > 0 ? highlights[0] : "";
           const achievements =
             highlights.length > 1
-              ? highlights.slice(1).map((h) => `- ${h}`).join("\n")
+              ? highlights
+                  .slice(1)
+                  .map((h) => `- ${h}`)
+                  .join("\n")
               : "";
 
           const achievementsSection = achievements
@@ -140,7 +147,9 @@ ${description}${achievementsSection}
 
     // Generate skills.md
     if (cv.sections.skills && cv.sections.skills.length > 0) {
-      console.log(`   ✓ Generating skills.md (${cv.sections.skills.length} categories)...`);
+      console.log(
+        `   ✓ Generating skills.md (${cv.sections.skills.length} categories)...`
+      );
       const skillsContent = cv.sections.skills
         .map((skill, index) => {
           // Parse skills from comma-separated string
@@ -164,7 +173,9 @@ order: ${index + 1}
 
     console.log("\n✅ Content files generated successfully!");
     console.log(`📁 Files created in: ${contentDir}`);
-    console.log("\n📝 Note: projects.md is not generated from YAML (website-only content)");
+    console.log(
+      "\n📝 Note: projects.md is not generated from YAML (website-only content)"
+    );
     console.log("   Edit projects.md manually if needed.");
   } catch (error) {
     console.error("\n❌ Error generating content:", error);
@@ -176,4 +187,3 @@ order: ${index + 1}
 }
 
 generateContentFromYaml();
-

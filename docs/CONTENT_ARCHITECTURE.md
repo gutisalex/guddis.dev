@@ -40,6 +40,7 @@ content/
 ### Example: Experience Entry
 
 **File**: `content/experiences.md`
+
 ```markdown
 ---
 company: brandung GmbH
@@ -59,6 +60,7 @@ Description of the role and responsibilities.
 ```
 
 **Flow**:
+
 1. `getExperiences()` reads the file
 2. Splits entries by `---` separator
 3. Parses YAML frontmatter and Markdown content
@@ -68,6 +70,7 @@ Description of the role and responsibilities.
 ### Editing Content
 
 To update the website content:
+
 1. Edit the Markdown files in `content/`
 2. Save the files
 3. The site automatically rebuilds (or restart dev server)
@@ -84,7 +87,7 @@ The CV/resume PDF is generated from a **YAML file** using [RenderCV](https://git
 ### Content Flow
 
 ```
-data/CV_Alexander_Gutheil.yaml
+data/resume.yaml
     (structured YAML with all CV data)
          ↓
     scripts/resume/generate-pdf.ts
@@ -94,8 +97,7 @@ data/CV_Alexander_Gutheil.yaml
     (generated PDF)
          ↓
     Copied to:
-    - docs/Alexander_Gutheil_Resume.pdf
-    - public/Alexander_Gutheil_Resume.pdf
+    - public/resume.pdf
          ↓
     /api/resume/download
     (serves PDF from public directory)
@@ -103,7 +105,7 @@ data/CV_Alexander_Gutheil.yaml
 
 ### How It Works
 
-1. **Source File**: `data/CV_Alexander_Gutheil.yaml` contains all CV data in RenderCV's YAML format
+1. **Source File**: `data/resume.yaml` contains all CV data in RenderCV's YAML format
 2. **Generation Script**: `scripts/resume/generate-pdf.ts`:
    - Runs `rendercv render` command
    - Generates PDF using Typst (professional typesetting)
@@ -114,7 +116,8 @@ data/CV_Alexander_Gutheil.yaml
 ### Editing the CV
 
 To update your CV:
-1. Edit `data/CV_Alexander_Gutheil.yaml`
+
+1. Edit `data/resume.yaml`
 2. Run: `bun run resume:generate`
 3. Commit the updated PDF
 4. Deploy (PDF is served from `public/`)
@@ -130,14 +133,14 @@ The CV YAML is more structured (RenderCV format) while the portfolio content is 
 
 ## Key Differences
 
-| Aspect | Portfolio Website | CV/Resume |
-|--------|------------------|-----------|
-| **Source Format** | Markdown (.md) | YAML (.yaml) |
-| **Location** | `content/` | `data/CV_Alexander_Gutheil.yaml` |
-| **Parser** | `gray-matter` | `RenderCV` (Python) |
-| **Output** | Rendered HTML (React) | PDF file |
-| **Update Process** | Edit Markdown → Auto-rebuild | Edit YAML → Generate PDF → Commit |
-| **Served Via** | Next.js pages | API route (`/api/resume/download`) |
+| Aspect             | Portfolio Website            | CV/Resume                          |
+| ------------------ | ---------------------------- | ---------------------------------- |
+| **Source Format**  | Markdown (.md)               | YAML (.yaml)                       |
+| **Location**       | `content/`                   | `data/resume.yaml`                 |
+| **Parser**         | `gray-matter`                | `RenderCV` (Python)                |
+| **Output**         | Rendered HTML (React)        | PDF file                           |
+| **Update Process** | Edit Markdown → Auto-rebuild | Edit YAML → Generate PDF → Commit  |
+| **Served Via**     | Next.js pages                | API route (`/api/resume/download`) |
 
 ---
 
@@ -147,4 +150,3 @@ The CV YAML is more structured (RenderCV format) while the portfolio content is 
 - **CV/Resume** = YAML file → RenderCV generates PDF → served as downloadable file
 
 Both are version-controlled, file-based, and require no external services (except RenderCV for PDF generation, which runs locally).
-

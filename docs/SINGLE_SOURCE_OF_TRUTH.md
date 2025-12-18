@@ -1,11 +1,11 @@
 # Single Source of Truth Workflow
 
-Your CV YAML file (`data/CV_Alexander_Gutheil.yaml`) is now the **single source of truth** for all content that appears in both your portfolio website and your CV/resume PDF.
+Your CV YAML file (`data/resume.yaml`) is now the **single source of truth** for all content that appears in both your portfolio website and your CV/resume PDF.
 
 ## How It Works
 
 ```
-data/CV_Alexander_Gutheil.yaml
+data/resume.yaml
     (Single Source of Truth)
          ↓
     ┌─────────────────┬─────────────────┐
@@ -21,7 +21,7 @@ Portfolio Site    Downloadable PDF
 
 ### 1. Edit Your Content
 
-**Edit the YAML file**: `data/CV_Alexander_Gutheil.yaml`
+**Edit the YAML file**: `data/resume.yaml`
 
 This file contains:
 
@@ -66,8 +66,7 @@ bun run resume:generate
 
 **CV/Resume**:
 
-- `docs/Alexander_Gutheil_Resume.pdf` - PDF for backup
-- `public/Alexander_Gutheil_Resume.pdf` - PDF served via API
+- `public/resume.pdf` - PDF served via API
 
 ### 4. Website-Only Content
 
@@ -100,7 +99,7 @@ bun run resume:generate
 
 ## Example: Updating Your Job Title
 
-1. **Edit** `data/CV_Alexander_Gutheil.yaml`:
+1. **Edit** `data/resume.yaml`:
 
    ```yaml
    cv:
@@ -119,7 +118,7 @@ bun run resume:generate
 
 ## Example: Adding a New Skill
 
-1. **Edit** `data/CV_Alexander_Gutheil.yaml`:
+1. **Edit** `data/resume.yaml`:
 
    ```yaml
    cv:

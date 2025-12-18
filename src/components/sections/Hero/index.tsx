@@ -63,10 +63,7 @@ export function Hero({ hero }: HeroProps) {
               View LinkedIn Profile
             </Button>
           </a>
-          <a
-            href="/api/resume/download"
-            download="Alexander_Gutheil_Resume.pdf"
-          >
+          <a href="/api/resume/download" download="resume.pdf">
             <Button
               size="lg"
               variant="outline"

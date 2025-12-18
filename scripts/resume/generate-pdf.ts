@@ -2,9 +2,9 @@ import { execSync } from "child_process";
 import { existsSync, copyFileSync } from "fs";
 import { join } from "path";
 
-const cvYamlPath = join(process.cwd(), "data", "CV_Alexander_Gutheil.yaml");
+const cvYamlPath = join(process.cwd(), "data", "resume.yaml");
 const publicDir = join(process.cwd(), "public");
-const outputFileName = "Alexander_Gutheil_Resume.pdf";
+const outputFileName = "resume.pdf";
 const publicPdfPath = join(publicDir, outputFileName);
 
 console.log("📄 Generating PDF from RenderCV YAML...\n");

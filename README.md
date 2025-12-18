@@ -1,36 +1,270 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# guddis.dev - Portfolio Website
 
-## Getting Started
+A modern, responsive portfolio website built with Next.js, featuring a single source of truth for content management. The site displays professional experience, skills, and projects, with an integrated CV/resume download feature.
 
-First, run the development server:
+## 🎯 What It Does
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+This portfolio website showcases:
+
+- **Hero Section** - Personal introduction with profile image
+- **About Section** - Professional summary
+- **Experience** - Work history with achievements
+- **Skills** - Technical skills organized by category
+- **Projects** - Portfolio projects (website-only)
+- **Contact** - Contact information and social links
+- **Resume Download** - PDF resume generation and download
+
+## 🛠️ Tech Stack
+
+### Core
+
+- **Next.js 16** - React framework with App Router
+- **React 19** - UI library
+- **TypeScript** - Type safety
+- **Tailwind CSS v4** - Styling
+
+### UI Components
+
+- **shadcn/ui** - Accessible component library (base-ui)
+- **lucide-react** - Icon library
+- **next-themes** - Dark mode support
+
+### Content Management
+
+- **Markdown** - Content files with YAML frontmatter
+- **gray-matter** - Markdown/YAML parsing
+- **js-yaml** - YAML parsing for content generation
+- **RenderCV** - Professional PDF resume generation (Python)
+
+### Development Tools
+
+- **Biome** - Linting and formatting
+- **Bun** - Package manager and runtime
+
+## 📁 Project Structure
+
+```
+guddis.dev/
+├── data/                          # Single source of truth
+│   └── resume.yaml                # YAML file with all CV data
+├── content/                       # Generated Markdown files (auto-generated)
+│   ├── hero.md
+│   ├── about.md
+│   ├── experiences.md
+│   ├── skills.md
+│   └── projects.md                # Manual edits only
+├── public/                        # Static assets
+│   ├── Profile_bw.jpg
+│   └── resume.pdf
+├── scripts/                       # Generation scripts
+│   ├── generate-content-from-yaml.ts
+│   └── resume/
+│       └── generate-pdf.ts
+├── src/
+│   ├── app/                       # Next.js App Router
+│   ├── components/                # React components
+│   └── lib/                       # Utilities
+│       └── content.ts             # Content loading logic
+└── docs/                          # Documentation
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Node.js 18+** (or Bun)
+- **Python 3.12+** (for RenderCV)
+- **RenderCV** - Install with: `pip3 install "rendercv[full]"`
 
-## Learn More
+### Installation
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   git clone <your-repo-url>
+   cd guddis.dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Install dependencies**
 
-## Deploy on Vercel
+   ```bash
+   bun install
+   # or
+   npm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Generate content from YAML**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   bun run content:generate
+   ```
+
+   This reads `data/resume.yaml` and generates Markdown files in `content/`.
+
+4. **Generate PDF resume** (optional, for first run)
+
+   ```bash
+   bun run resume:generate
+   ```
+
+   This generates the PDF resume to `public/resume.pdf`.
+
+5. **Start the development server**
+
+   ```bash
+   bun run dev
+   # or
+   npm run dev
+   ```
+
+6. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 📝 Content Management
+
+### Single Source of Truth
+
+The project uses a **single source of truth** approach:
+
+- **Edit once**: Update `data/resume.yaml`
+- **Generate everything**: Run `bun run update:all`
+- **Result**: Both website content and CV PDF are updated
+
+### Available Scripts
+
+```bash
+# Generate website content from YAML
+bun run content:generate
+
+# Generate PDF resume from YAML
+bun run resume:generate
+
+# Generate both (recommended)
+bun run update:all
+
+# Development
+bun run dev          # Start dev server
+bun run build        # Build for production
+bun run start        # Start production server
+
+# Code quality
+bun run lint         # Run linter
+bun run format        # Format code
+```
+
+### Updating Content
+
+1. **Edit** `data/resume.yaml`
+2. **Run** `bun run update:all`
+3. **Commit** the generated files (content/_.md and public/_.pdf)
+4. **Deploy** - Changes appear on the website
+
+### Website-Only Content
+
+- **Projects** (`content/projects.md`) - Edit manually, not generated from YAML
+- **Profile Image** - Set in generated `content/hero.md` or edit manually
+
+## 🎨 Features
+
+- ✅ **Responsive Design** - Works on all devices
+- ✅ **Dark Mode** - Automatic theme switching
+- ✅ **Fast Performance** - Static generation with ISR
+- ✅ **SEO Optimized** - Structured data and meta tags
+- ✅ **Accessible** - WCAG compliant components
+- ✅ **Type Safe** - Full TypeScript coverage
+
+## 🚢 Deployment
+
+### Vercel (Recommended)
+
+The project is configured for deployment on Vercel via GitHub:
+
+1. **Push to GitHub**
+
+   ```bash
+   git add .
+   git commit -m "Update content"
+   git push origin main
+   ```
+
+2. **Connect to Vercel**
+
+   - Go to [vercel.com](https://vercel.com)
+   - Import your GitHub repository
+   - Vercel will auto-detect Next.js
+
+3. **Build Settings**
+
+   - **Framework Preset**: Next.js
+   - **Build Command**: `bun run build` (or `npm run build`)
+   - **Output Directory**: `.next` (default)
+   - **Install Command**: `bun install` (or `npm install`)
+
+4. **Environment Variables**
+
+   - None required for basic setup
+   - Add if you need external services later
+
+5. **Deploy**
+   - Vercel automatically deploys on every push to main
+   - Preview deployments for pull requests
+
+### Build Process
+
+Vercel will:
+
+1. Install dependencies (`bun install`)
+2. Run build (`bun run build`)
+3. Deploy the static site
+
+**Note**: The PDF resume must be generated locally and committed to the repository, as RenderCV (Python) is not available in Vercel's build environment. The PDF in `public/` is served statically.
+
+### Manual Deployment Steps
+
+If you need to update the resume PDF:
+
+1. **Generate locally**
+
+   ```bash
+   bun run resume:generate
+   ```
+
+2. **Commit the PDF**
+
+   ```bash
+   git add public/resume.pdf
+   git commit -m "Update resume PDF"
+   git push
+   ```
+
+3. **Vercel automatically redeploys**
+
+## 📚 Documentation
+
+- [Content Architecture](./docs/CONTENT_ARCHITECTURE.md) - How content flows through the system
+- [Single Source of Truth](./docs/SINGLE_SOURCE_OF_TRUTH.md) - Content management workflow
+- [Resume Workflow](./docs/RESUME_WORKFLOW.md) - CV generation details
+
+## 🔧 Development
+
+### Adding New Sections
+
+1. Create component in `src/components/sections/`
+2. Add content type in `src/lib/content.ts`
+3. Generate content file or add to YAML
+4. Import and use in `src/app/page.tsx`
+
+### Styling
+
+- Uses Tailwind CSS v4
+- Components from shadcn/ui
+- Custom styles in `src/app/globals.css`
+- Dark mode via `next-themes`
+
+## 📄 License
+
+Private project - All rights reserved
+
+## 👤 Author
+
+Alexander Gutheil - [guddis.dev](https://guddis.dev)
