@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://guddis.dev",
+    url: "https://a.gutheil.dev",
     title: "Alexander Gutheil - Senior Frontend Developer",
     description:
       "Senior Frontend Developer with 10+ years of experience building high-performance web and mobile applications.",

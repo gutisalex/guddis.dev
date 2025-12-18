@@ -1,4 +1,4 @@
-# guddis.dev - Portfolio Website
+# gutheil.dev - Portfolio Website
 
 A modern, responsive portfolio website built with Next.js, featuring a single source of truth for content management. The site displays professional experience, skills, and projects, with an integrated CV/resume download feature.
 
@@ -44,7 +44,7 @@ This portfolio website showcases:
 ## 📁 Project Structure
 
 ```
-guddis.dev/
+gutheil.dev/
 ├── data/                          # Single source of truth
 │   └── resume.yaml                # YAML file with all CV data
 ├── content/                       # Generated Markdown files (auto-generated)
@@ -82,7 +82,7 @@ guddis.dev/
 
    ```bash
    git clone <your-repo-url>
-   cd guddis.dev
+   cd gutheil.dev
    ```
 
 2. **Install dependencies**
@@ -267,4 +267,4 @@ Private project - All rights reserved
 
 ## 👤 Author
 
-Alexander Gutheil - [guddis.dev](https://guddis.dev)
+Alexander Gutheil - [a.gutheil.dev](https://a.gutheil.dev)
