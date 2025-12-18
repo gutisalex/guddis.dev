@@ -1,5 +1,5 @@
 import { Separator } from "@/components/ui/separator";
-import type { Experience } from "@/lib/contentful/queries";
+import type { Experience } from "@/lib/content";
 
 type ExperienceProps = {
   experiences: Experience[];
@@ -62,7 +62,10 @@ export function Experience({ experiences }: ExperienceProps) {
             const achievements = experience.achievements ?? undefined;
 
             return (
-              <div key={experience.sys.id} className="group">
+              <div
+                key={`${experience.company}-${experience.position}-${index}`}
+                className="group"
+              >
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold group-hover:text-primary transition-colors duration-200">

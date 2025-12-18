@@ -1,11 +1,10 @@
-import { draftMode } from "next/headers";
 import {
   getHeroSection,
   getAboutSection,
   getExperiences,
   getSkillCategories,
   getProjects,
-} from "@/lib/contentful/queries";
+} from "@/lib/content";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { Experience as ExperienceSection } from "@/components/sections/Experience";
@@ -17,24 +16,21 @@ import { StructuredData } from "@/components/StructuredData";
 export const revalidate = 3600; // Revalidate every hour
 
 export default async function Home() {
-  const { isEnabled } = await draftMode();
-  const preview = isEnabled;
-
   // Fetch all content in parallel
   const [hero, about, experiences, skillCategories, projects] =
     await Promise.all([
-      getHeroSection(preview),
-      getAboutSection(preview),
-      getExperiences(preview),
-      getSkillCategories(preview),
-      getProjects(preview),
+      getHeroSection(),
+      getAboutSection(),
+      getExperiences(),
+      getSkillCategories(),
+      getProjects(),
     ]);
 
   if (!hero || !about) {
     return (
       <div className="flex min-h-screen items-center justify-center">
         <p className="text-muted-foreground">
-          Content is being set up. Please check Contentful.
+          Content is being set up. Please check the content directory.
         </p>
       </div>
     );

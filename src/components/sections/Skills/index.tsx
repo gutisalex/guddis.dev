@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import type { SkillCategory } from "@/lib/contentful/queries";
+import type { SkillCategory } from "@/lib/content";
 
 type SkillsProps = {
   skillCategories: SkillCategory[];
@@ -24,7 +24,7 @@ export function Skills({ skillCategories }: SkillsProps) {
             const skills = category.skills?.filter((s): s is string => s !== null) ?? [];
 
             return (
-              <div key={category.sys.id} className="space-y-3 group">
+              <div key={category.categoryName} className="space-y-3 group">
                 <h3 className="text-lg font-semibold group-hover:text-primary transition-colors duration-200">
                   {categoryName}
                 </h3>

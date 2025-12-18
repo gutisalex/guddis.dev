@@ -1,6 +1,6 @@
 import { Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import type { HeroSection } from "@/lib/contentful/queries";
+import type { HeroSection } from "@/lib/content";
 
 type ContactProps = {
   hero: HeroSection;

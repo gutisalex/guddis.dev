@@ -1,4 +1,4 @@
-import type { HeroSection } from "@/lib/contentful/queries";
+import type { HeroSection } from "@/lib/content";
 
 type StructuredDataProps = {
   hero: HeroSection;

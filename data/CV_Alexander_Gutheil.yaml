@@ -1,0 +1,163 @@
+cv:
+  name: Alexander Gutheil
+  location: Kassel, Germany
+  email: gutisalex@gmail.com
+  website: https://guddis.dev
+  social_networks:
+    - network: LinkedIn
+      username: alexander-gutheil-0762a0166
+  sections:
+    Professional Summary:
+      - Senior Frontend Developer with 6+ years of focused experience building high-performance web and mobile applications, backed by a diverse technical background spanning system administration and 3D/VR development. Expert in Vue.js and Nuxt.js with extensive experience in React and modern JavaScript frameworks. Proven track record of leading frontend teams and delivering enterprise-level solutions. Specialized in CMS migrations, performance optimization, and modern meta-frameworks. Currently leading frontend teams at brandung GmbH, successfully delivering large-scale migrations and platform modernizations.
+
+    experience:
+      - company: brandung GmbH
+        position: Senior Frontend Developer
+        location: Cologne, Germany
+        start_date: 2025-01
+        end_date: present
+        highlights:
+          - Continue leading the Deutsche Glasfaser frontend team, driving technical decisions and architecture evolution for the ongoing platform modernization
+          - Lead an external agency team working on the relaunch of the Deutsche Glasfaser checkout system, conducting code reviews and ensuring code quality and architectural consistency
+          - Mentor team members and establish development best practices
+
+      - company: brandung GmbH
+        position: Frontend Developer
+        location: Cologne, Germany
+        start_date: 2021-01
+        end_date: 2024-12
+        highlights:
+          - Led the frontend team for the Deutsche Glasfaser GmbH relaunch (May 2023 – Present), a major enterprise project migrating from TYPO3 to Next.js with Contentful CMS
+          - Architected and implemented the complete frontend solution, initially using Next.js (App Router) and TypeScript
+          - Successfully migrated the platform to Next.js 16 and React 19, ensuring seamless transition and improved performance
+          - Integrated Contentful CMS via GraphQL with automated type generation for type-safe content management
+          - Implemented testing strategy with Playwright for end-to-end tests, Vitest for unit tests, and Storybook for component testing
+          - Implemented performance optimizations including Redis caching, image optimization, and bundle analysis
+          - Delivered a modern, scalable platform serving enterprise-level traffic with significantly improved performance and developer experience
+          - Managed the technical migration strategy and coordinated with cross-functional teams throughout the project lifecycle
+          - Contributed to multiple Nuxt.js relaunch projects including 1. FC Köln and About You, gaining extensive expertise in Vue.js ecosystem and headless CMS integrations
+          - Developed and maintained high-performance web applications using React, Next.js, and Vue.js frameworks
+          - Architected scalable frontend solutions using modern meta-frameworks (Next.js, Nuxt.js) and headless CMS platforms (Contentful, Storyblok, Scayle)
+          - Optimized application performance and user experience, implementing best practices for responsive design with Tailwind CSS
+
+      - company: Zazmo GmbH
+        position: Frontend Developer (Co-Founder)
+        location: Kassel, Germany
+        start_date: 2019-02
+        end_date: 2021-01
+        highlights:
+          - Co-founded startup focused on innovative group payment solutions, securing EXIST founder scholarship for first-year funding
+          - Achieved 2nd place in Hessian Founder Prize and 3rd place in Nordhessen Promotion Competition
+          - Designed and developed a web application for group payment processing from concept to production
+          - Built the frontend architecture using Vue.js, ensuring scalability and maintainability
+          - Integrated third-party services and APIs including Stripe and Usercentrics
+          - Delivered pilot project for Stadtwerke Kassel AG, which remains in active production use
+          - Collaborated with stakeholders to conceptualize and implement digital business processes
+          - Delivered a production-ready application meeting performance and security requirements
+
+      - company: VirtuaTec
+        position: Software Developer
+        location: Kassel, Germany
+        start_date: 2014-09
+        end_date: 2019-02
+        highlights:
+          - Developed innovative 3D applications using Unity 3D for automotive simulation environments and HMIs
+          - Created immersive Virtual Reality experiences for automotive applications
+          - Designed and implemented 3D models using Maya
+          - Programmed application logic in C# using Microsoft Visual Studio
+          - Collaborated on storyboard development and virtual world creation
+          - Delivered cutting-edge solutions for automotive industry clients
+
+      - company: IT Service und Beratung
+        position: System Administrator
+        location: Kassel, Germany
+        start_date: 2006-06
+        end_date: 2014-09
+        highlights:
+          - Managed and maintained Windows and Linux server environments
+          - Diagnosed and resolved complex IT issues in client and server environments
+          - Created and maintained system documentation and project requirements
+          - Ensured reliable IT infrastructure for business operations
+          - Provided technical support and troubleshooting for clients
+
+      - company: Self-Employed
+        position: Web Designer (Freelance)
+        location: Kassel, Germany
+        start_date: 2003-08
+        end_date: 2006-06
+        highlights:
+          - Designed and developed custom websites for various clients
+          - Worked with content management systems including WordPress
+          - Implemented SEO best practices to improve client website visibility
+          - Managed client relationships and project delivery
+
+    education:
+      - institution: University of Kassel
+        area: Computer Science
+        degree: Master of Science
+        date:
+        start_date: 2012-10
+        end_date: 2017-02
+        location: Kassel, Germany
+        summary:
+        highlights:
+          - "Specialization: Practical Computer Science with focus on Computer Graphics and Virtual Reality"
+          - "Final Grade: 1.8 (German grading system)"
+
+      - institution: University of Kassel
+        area: Computer Science
+        degree: Bachelor of Science
+        date:
+        start_date: 2003-10
+        end_date: 2010-10
+        location: Kassel, Germany
+        summary:
+        highlights:
+          - "Specialization: Practical Computer Science with focus on Web Development"
+          - "Final Grade: 2.6 (German grading system)"
+
+    skills:
+      - label: Frontend Frameworks & Libraries
+        details: Vue.js, Nuxt.js, React, Next.js, TypeScript, JavaScript (ES6+)
+      - label: Mobile Development
+        details: Flutter, React Native
+      - label: Backend & Languages
+        details: Go, C# (.NET), Node.js
+      - label: Styling & Design
+        details: Tailwind CSS, CSS3, HTML5, Responsive Design
+      - label: CMS & Headless Platforms
+        details: Contentful (GraphQL), Storyblok, Scayle
+      - label: Build Tools & Testing
+        details: Webpack, Vite, Playwright, Vitest, Jest, Storybook, Git, CI/CD
+      - label: Tools & Platforms
+        details: Docker, Vercel, Redis, Stripe, Usercentrics, Ninetailed
+      - label: Additional
+        details: Unity 3D, Maya, Virtual Reality Development
+
+    Additional Information:
+      - "Languages: German (Native), English (Professional)"
+      - "Interests: Fitness, Football"
+      - "International Experience: Work & Travel in Australia (System Operator at Auscott Cotton, Moree Queensland) | March 2011 – September 2011"
+
+design:
+  theme: engineeringresumes
+  page:
+    size: a4
+    top_margin: 0.7in
+    bottom_margin: 0.7in
+    left_margin: 0.7in
+    right_margin: 0.7in
+    show_footer: true
+  colors:
+    name: rgb(0, 79, 144)
+    headline: rgb(0, 79, 144)
+    section_titles: rgb(0, 79, 144)
+    links: rgb(0, 79, 144)
+  typography:
+    font_family: Source Sans 3
+    line_spacing: 1.2em
+
+locale:
+  language: english
+  last_updated: Last updated
+  present: Present

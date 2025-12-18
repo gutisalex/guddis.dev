@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import type { Project } from "@/lib/contentful/queries";
+import type { Project } from "@/lib/content";
 
 type ProjectsProps = {
   projects: Project[];
@@ -39,7 +39,7 @@ export function Projects({ projects }: ProjectsProps) {
 
             return (
               <Card
-                key={project.sys.id}
+                key={project.title}
                 className="flex flex-col overflow-hidden group hover:shadow-lg transition-all duration-300 border-border hover:border-primary/20"
               >
                 {image?.url && (

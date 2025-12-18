@@ -1,7 +1,7 @@
-import { Linkedin } from "lucide-react";
+import { Linkedin, Download } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import type { HeroSection } from "@/lib/contentful/queries";
+import type { HeroSection } from "@/lib/content";
 
 type HeroProps = {
   hero: HeroSection;
@@ -53,7 +53,7 @@ export function Hero({ hero }: HeroProps) {
           </div>
         </div>
 
-        <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
           <a href={linkedInUrl} target="_blank" rel="noopener noreferrer">
             <Button
               size="lg"
@@ -61,6 +61,19 @@ export function Hero({ hero }: HeroProps) {
             >
               <Linkedin className="h-5 w-5" />
               View LinkedIn Profile
+            </Button>
+          </a>
+          <a
+            href="/api/resume/download"
+            download="Alexander_Gutheil_Resume.pdf"
+          >
+            <Button
+              size="lg"
+              variant="outline"
+              className="mt-4 flex items-center gap-2 shadow-md hover:shadow-lg transition-all duration-200"
+            >
+              <Download className="h-5 w-5" />
+              Download Resume
             </Button>
           </a>
         </div>

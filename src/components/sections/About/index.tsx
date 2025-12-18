@@ -1,4 +1,4 @@
-import type { AboutSection } from "@/lib/contentful/queries";
+import type { AboutSection } from "@/lib/content";
 
 type AboutProps = {
   about: AboutSection;
