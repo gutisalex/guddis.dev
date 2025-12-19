@@ -50,7 +50,7 @@ export function Hero({ hero }: HeroProps) {
       {/* Subtle gradient background */}
       <div className="absolute inset-0 bg-linear-to-b from-primary/5 via-transparent to-transparent dark:from-primary/10" />
 
-      <div className="relative flex w-full max-w-4xl flex-col items-center gap-8 text-center">
+      <div className="relative flex w-full max-w-4xl flex-col items-center gap-4 lg:gap-8 text-center">
         {profileImage?.url && (
           <div className="relative h-48 w-48 overflow-hidden rounded-full sm:h-56 sm:w-56 ring-4 ring-primary/10 dark:ring-primary/20 shadow-lg animate-in fade-in zoom-in duration-700">
             <Image
