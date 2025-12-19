@@ -32,17 +32,20 @@ export function Navigation() {
   // Calculate opacity: 0 at 0px, 1 at 100px
   const opacity = Math.min(scrollY / 100, 1);
   const isVisible = opacity > 0;
+  // When mobile menu is open, use same opacity as scrolled state
+  const backgroundOpacity = isMobileMenuOpen ? 0.8 : opacity * 0.8;
 
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50",
-        isVisible && "backdrop-blur-md border-b border-border shadow-sm",
+        (isVisible || isMobileMenuOpen) &&
+          "backdrop-blur-md border-b border-border shadow-sm",
       )}
     >
       <div
         className="absolute inset-0 bg-background"
-        style={{ opacity: opacity * 0.8 }}
+        style={{ opacity: backgroundOpacity }}
       />
       <nav className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
