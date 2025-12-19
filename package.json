@@ -8,9 +8,10 @@
     "start": "next start",
     "lint": "biome check",
     "format": "biome format --write",
-    "content:generate": "bun run scripts/generate-content-from-yaml.ts",
-    "resume:generate": "bun run scripts/generate-pdf.ts",
-    "update:all": "bun run content:generate && bun run resume:generate"
+    "cv:edit": "bun run scripts/edit-cv.ts",
+    "cv:generate": "bun run scripts/generate-cv.ts",
+    "content:generate": "bun run scripts/generate-content.ts",
+    "update:all": "bun run content:generate && bun run cv:generate"
   },
   "dependencies": {
     "@base-ui/react": "^1.0.0",
