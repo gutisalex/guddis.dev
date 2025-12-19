@@ -25,7 +25,6 @@ cv:
           - Implemented performance optimizations including Redis caching, image optimization, and bundle analysis
           - Set up CI/CD pipelines and automated deployment processes to streamline development workflows
           - Extensive work with AI tools and technologies, developing expertise in leveraging AI to enhance development workflows and productivity
-
       - company: brandung GmbH
         position: Frontend Developer
         location: Cologne, Germany
@@ -145,9 +144,12 @@ cv:
         details: Unity 3D, Maya, Virtual Reality Development
 
     Additional Information:
-      - "Languages: German (Native), English (Professional)"
-      - "Interests: Fitness, Football"
-      - "International Experience: Work & Travel in Australia (System Operator at Auscott Cotton, Moree Queensland) | March 2011 – September 2011"
+      - label: Languages
+        details: German (Native), English (Professional)
+      - label: Interests
+        details: Fitness, Football
+      - label: International Experience
+        details: Work & Travel in Australia (System Operator at Auscott Cotton, Moree Queensland)
 
 design:
   theme: engineeringresumes
@@ -158,6 +160,11 @@ design:
     left_margin: 0.7in
     right_margin: 0.7in
     show_footer: true
+  section_titles:
+    type: with_full_line
+    line_thickness: 0.5pt
+    space_above: 0.8cm
+    space_below: 0.4cm
   colors:
     name: rgb(0, 79, 144)
     headline: rgb(0, 79, 144)
