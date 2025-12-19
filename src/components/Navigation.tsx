@@ -17,28 +17,34 @@ const navItems = [
 ];
 
 export function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setScrollY(window.scrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Calculate opacity: 0 at 0px, 1 at 100px
+  const opacity = Math.min(scrollY / 100, 1);
+  const isVisible = opacity > 0;
+
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-border shadow-sm"
-          : "bg-background/95 backdrop-blur-sm",
+        "fixed top-0 left-0 right-0 z-50",
+        isVisible && "backdrop-blur-md border-b border-border shadow-sm",
       )}
     >
-      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div
+        className="absolute inset-0 bg-background"
+        style={{ opacity: opacity * 0.8 }}
+      />
+      <nav className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo/Brand */}
           <Link
