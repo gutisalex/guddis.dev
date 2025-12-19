@@ -58,15 +58,14 @@ isCurrent: false
 order: 3
 ---
 
-
+Co-founded startup focused on innovative group payment solutions, securing EXIST founder scholarship for first-year funding
 
 ## Achievements
 
-- Co-founded startup focused on innovative group payment solutions, securing EXIST founder scholarship for first-year funding
-- Achieved 2nd place in Hessian Founder Prize and 3rd place in Nordhessen Promotion Competition
 - Designed and developed a web application for group payment processing from concept to production
 - Built the frontend architecture using Vue.js, ensuring scalability and maintainability
 - Integrated third-party services and APIs including Stripe and Usercentrics
+- Achieved 2nd place in Hessian Founder Prize and 3rd place in Nordhessen Promotion Competition
 - Delivered pilot project for Stadtwerke Kassel AG, which remains in active production use
 - Collaborated with stakeholders to conceptualize and implement digital business processes
 - Delivered a production-ready application meeting performance and security requirements
@@ -83,7 +82,7 @@ isCurrent: false
 order: 4
 ---
 
-
+Specialized in creating cutting-edge 3D visualization and Virtual Reality solutions for the automotive industry, delivering immersive simulation environments and interactive experiences
 
 ## Achievements
 
@@ -92,6 +91,8 @@ order: 4
 - Designed and implemented 3D models using Maya
 - Programmed application logic in C# using Microsoft Visual Studio
 - Collaborated on storyboard development and virtual world creation
+- Optimized 3D rendering performance and VR application responsiveness for smooth user experiences
+- Worked closely with automotive clients to understand requirements and translate them into technical specifications
 - Delivered cutting-edge solutions for automotive industry clients
 
 ---
@@ -106,7 +107,7 @@ isCurrent: false
 order: 5
 ---
 
-
+Provided comprehensive IT infrastructure management and technical support services, ensuring optimal system performance and reliability for business operations
 
 ## Achievements
 
@@ -128,7 +129,7 @@ isCurrent: false
 order: 6
 ---
 
-
+Delivered end-to-end web design and development services as an independent contractor, creating tailored digital solutions that met client business objectives and technical requirements
 
 ## Achievements
 

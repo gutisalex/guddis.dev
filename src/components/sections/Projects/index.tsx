@@ -132,9 +132,9 @@ export function Projects({ projects }: ProjectsProps) {
             </CarouselContent>
             {hasMultipleProjects && (
               <div className="flex justify-center items-center gap-4 mt-4">
-                <CarouselPrevious className="!static !translate-x-0 !translate-y-0" />
+                <CarouselPrevious className="static! translate-x-0! translate-y-0!" />
                 <CarouselDots />
-                <CarouselNext className="!static !translate-x-0 !translate-y-0" />
+                <CarouselNext className="static! translate-x-0! translate-y-0!" />
               </div>
             )}
           </Carousel>
