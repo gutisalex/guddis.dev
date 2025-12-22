@@ -38,12 +38,15 @@ export default async function Home() {
     );
   }
 
+  // Get email from environment variable (single source of truth)
+  const contactEmail = process.env.CONTACT_EMAIL || "";
+
   return (
     <>
       <StructuredData hero={hero} />
       <Navigation />
       <main className="min-h-screen">
-        <Hero hero={hero} />
+        <Hero hero={hero} contactEmail={contactEmail} />
         <About about={about} />
         <ExperienceSection experiences={experiences} />
         <Skills skillCategories={skillCategories} />

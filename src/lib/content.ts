@@ -209,11 +209,18 @@ export async function getHeroSection(): Promise<HeroSection | null> {
       }
     }
 
+    // Get email from environment variable (single source of truth)
+    const email = process.env.CONTACT_EMAIL;
+    if (!email) {
+      console.error("CONTACT_EMAIL environment variable is not set");
+      // Return empty string rather than failing completely
+    }
+
     return {
       name: hero.name ?? "",
       title: hero.title ?? "",
       location: hero.location ?? "",
-      email: hero.email ?? "",
+      email: email || "",
       linkedInUrl: hero.linkedInUrl ?? "",
       profileImage,
     };

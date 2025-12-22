@@ -1,6 +1,6 @@
-import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { HeroSection } from "@/lib/content";
+import { ContactForm } from "./ContactForm";
 
 // LinkedIn icon component (replacement for deprecated lucide-react Linkedin icon)
 const LinkedinIcon = ({ className }: { className?: string }) => (
@@ -20,7 +20,6 @@ type ContactProps = {
 };
 
 export function Contact({ hero }: ContactProps) {
-  const email = hero.email ?? "";
   const linkedInUrl = hero.linkedInUrl ?? "";
 
   return (
@@ -40,24 +39,22 @@ export function Contact({ hero }: ContactProps) {
           I&apos;m always open to discussing new opportunities and interesting
           projects. Feel free to reach out!
         </p>
-        <div className="flex flex-col items-center justify-center gap-4 sm:flex-row scroll-slide-up">
+
+        {/* Contact Form */}
+        <div className="mb-8 scroll-slide-up">
+          <ContactForm />
+        </div>
+
+        {/* LinkedIn Link */}
+        <div className="scroll-slide-up">
           <a href={linkedInUrl} target="_blank" rel="noopener noreferrer">
             <Button
               size="lg"
-              className="flex items-center gap-2 shadow-md hover:shadow-lg transition-all duration-200"
+              variant="outline"
+              className="flex items-center gap-2 mx-auto shadow-md hover:shadow-lg transition-all duration-200"
             >
               <LinkedinIcon className="h-5 w-5" />
               Connect on LinkedIn
-            </Button>
-          </a>
-          <a href={`mailto:${email}`}>
-            <Button
-              size="lg"
-              variant="outline"
-              className="flex items-center gap-2 hover:bg-primary/10 hover:border-primary/20 transition-all duration-200"
-            >
-              <Mail className="h-5 w-5" />
-              Send Email
             </Button>
           </a>
         </div>

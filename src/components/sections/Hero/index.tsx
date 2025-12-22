@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import type { HeroSection } from "@/lib/content";
-import { cn } from "@/lib/utils";
+import { cn, obfuscateEmail } from "@/lib/utils";
 
 // LinkedIn icon component (replacement for deprecated lucide-react Linkedin icon)
 const LinkedinIcon = ({ className }: { className?: string }) => (
@@ -22,14 +22,15 @@ const LinkedinIcon = ({ className }: { className?: string }) => (
 
 type HeroProps = {
   hero: HeroSection;
+  contactEmail: string;
 };
 
-export function Hero({ hero }: HeroProps) {
+export function Hero({ hero, contactEmail }: HeroProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const name = hero.name ?? "";
   const title = hero.title ?? "";
   const location = hero.location ?? "";
-  const email = hero.email ?? "";
+  const email = contactEmail;
   const linkedInUrl = hero.linkedInUrl ?? "";
   const profileImage = hero.profileImage;
 
@@ -76,7 +77,7 @@ export function Hero({ hero }: HeroProps) {
               href={`mailto:${email}`}
               className="hover:text-foreground transition-colors duration-200"
             >
-              {email}
+              {obfuscateEmail(email)}
             </a>
           </div>
         </div>

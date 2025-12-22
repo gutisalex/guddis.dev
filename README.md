@@ -164,6 +164,15 @@ bun run format        # Format code
 - **Projects** (`content/projects.md`) - Edit manually, not generated from YAML
 - **Profile Image** - Set in generated `content/hero.md` or edit manually
 
+### Email Address (Single Source of Truth)
+
+- **Environment Variable**: `CONTACT_EMAIL` is the single source of truth for your email
+- **Automatic Override**: The email in `content/hero.md` and `data/Alexander_Gutheil_CV.yaml` is automatically replaced with `CONTACT_EMAIL` when:
+  - Generating content files (`bun run content:generate`)
+  - Generating CV PDF (`bun run cv:generate`)
+  - Loading content in the application (`getHeroSection()`)
+- **Set Once**: Configure `CONTACT_EMAIL` in your `.env.local` file and Vercel environment variables
+
 ## 🎨 Features
 
 - ✅ **Responsive Design** - Works on all devices
@@ -202,8 +211,30 @@ The project is configured for deployment on Vercel via GitHub:
 
 4. **Environment Variables**
 
-   - None required for basic setup
-   - Add if you need external services later
+   Create a `.env.local` file in the root directory:
+
+   ```bash
+   # Required for contact form
+   RESEND_API_KEY=re_xxxxxxxxxxxxx
+   
+   # Required: Your contact email (single source of truth)
+   CONTACT_EMAIL=your-email@example.com
+   
+   # Optional: Custom "from" email (defaults to onboarding@resend.dev for testing)
+   # Must be a verified domain in Resend for production
+   RESEND_FROM_EMAIL=Contact Form <noreply@gutheil.dev>
+   ```
+
+   **Getting your Resend API Key:**
+   1. Sign up at [resend.com](https://resend.com)
+   2. Go to API Keys in the dashboard
+   3. Create a new API key
+   4. Copy it to your `.env.local` file
+
+   **Note**: 
+   - The `CONTACT_EMAIL` environment variable is the **single source of truth** for your email address
+   - It will override any email in `content/hero.md` and `data/Alexander_Gutheil_CV.yaml`
+   - For production on Vercel, add these environment variables in the Vercel dashboard under Project Settings → Environment Variables
 
 5. **Deploy**
    - Vercel automatically deploys on every push to main

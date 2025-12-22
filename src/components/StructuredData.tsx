@@ -16,7 +16,8 @@ export function StructuredData({ hero }: StructuredDataProps) {
     "@type": "Person",
     name,
     jobTitle: title,
-    email,
+    // Email removed from structured data to prevent spam bot scraping
+    // Contact information is available through the contact section
     url: linkedInUrl,
     address: {
       "@type": "PostalAddress",

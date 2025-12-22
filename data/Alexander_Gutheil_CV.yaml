@@ -1,7 +1,7 @@
 cv:
   name: Alexander Gutheil
   location: Kassel, Germany
-  email: gutisalex@gmail.com
+  email: "" # Email is set via CONTACT_EMAIL environment variable
   website: https://a.gutheil.dev
   social_networks:
     - network: LinkedIn

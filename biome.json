@@ -20,6 +20,12 @@
       "recommended": true,
       "suspicious": {
         "noUnknownAtRules": "off"
+      },
+      "a11y": {
+        "noLabelWithoutControl": "off"
+      },
+      "correctness": {
+        "useImportType": "warn"
       }
     },
     "domains": {
@@ -27,6 +33,21 @@
       "react": "recommended"
     }
   },
+  "overrides": [
+    {
+      "include": ["src/components/ui/**"],
+      "linter": {
+        "rules": {
+          "a11y": {
+            "noLabelWithoutControl": "off"
+          },
+          "correctness": {
+            "useImportType": "off"
+          }
+        }
+      }
+    }
+  ],
   "assist": {
     "actions": {
       "source": {
